@@ -1,0 +1,30 @@
+
+<div class="card border-secondary mb-3c" >
+
+  <div class="card-body"  *ngIf="habilitar == true">
+    <h5 class="card-title">Listado de Activos</h5>
+<table id="myTable"  class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Codigo Activo</th>
+      <th>Descripcion</th>
+      <th>Custodio</th>
+      <th>Empresa</th>
+      <th>Ubicacion</th>
+      <th>Tipo</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let activo of activos">
+      <td>{{activo.codigoActivo}}      </td>
+      <td>{{activo.descripcion}}</td>
+      <td>{{activo.custodio}}</td>
+      <td>{{activo.empresaActivo.descripcion}}</td>
+       <td>{{activo.ubicacionActivo.descripcion}}</td>
+      <td>{{activo.tipoActivo.descripcion}}</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
