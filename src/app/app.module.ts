@@ -7,6 +7,7 @@ import {FooterComponent} from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 import { ActivosComponent } from './activos/activos.component';
 import {ActivoService} from './activos/activo.service';
+import {RouterModule,Router} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import {ActivoService} from './activos/activo.service';
     FooterComponent,
     DirectivaComponent,
     ActivosComponent,
-    
+
   ],
   imports: [
     BrowserModule
