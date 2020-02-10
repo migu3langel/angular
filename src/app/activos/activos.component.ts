@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Activo} from './activo';
 import {ActivoService} from './activo.service';
 
+
+
+
 @Component({
   selector: 'app-activos',
   templateUrl: './activos.component.html',
@@ -13,14 +16,20 @@ export class ActivosComponent implements OnInit {
 
 activos: Activo[];
 
-  constructor(private activosService: ActivoService) { }
+  constructor(private activosService: ActivoService) {
+
+
+   }
+
 
   ngOnInit() {
+
+
     this.activosService.getActivos().subscribe(
 
       activos => this.activos = activos
 
-    );
+              );
   }
 
   setHabilitar(): void {
