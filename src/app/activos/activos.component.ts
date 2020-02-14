@@ -24,7 +24,7 @@ activos: Activo[];
 
   ngOnInit() {
 
-
+       
     this.activosService.getActivos().subscribe(
 
       activos => this.activos = activos
