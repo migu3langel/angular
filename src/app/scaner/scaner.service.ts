@@ -5,15 +5,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ActivoService {
+export class Scanservice {
 
   constructor(private http: HttpClient) { }
-  getActivos() {
-    return this.http.get<any>('http://localhost:9000/ia/api/activos')
+  getScan() {
+    return this.http.get<any>('http://localhost:9000/ia/api/scan')
 
   }
-
-
-
-  
 }

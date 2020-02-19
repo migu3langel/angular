@@ -9,18 +9,19 @@ import { ActivosComponent } from './activos/activos.component';
 import {ActivoService} from './activos/activo.service';
 import {RouterModule, Routes} from '@angular/router';
 import {TableModule} from 'primeng/table';
-import {ButtonModule} from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {PanelModule} from 'primeng/panel';
-
-
-
-
+import { ScanerComponent } from './scaner/scaner.component';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {DialogModule} from 'primeng/dialog';
+import {SelectItem} from 'primeng/api';
+import {MatSelectModule} from '@angular/material/select';
 const routes: Routes = [
 
   {path: 'directivas', component: DirectivaComponent},
   {path: 'activos', component: ActivosComponent},
+  {path: 'scan', component: ScanerComponent},
+
 
 
 ];
@@ -31,12 +32,15 @@ const routes: Routes = [
     FooterComponent,
     DirectivaComponent,
     ActivosComponent,
- 
-  
+    ScanerComponent,
+
+
+
+
   ],
   imports: [
     BrowserModule,   BrowserAnimationsModule, RouterModule.forRoot(routes),
-    TableModule, FormsModule,
+    TableModule, FormsModule, DialogModule,MultiSelectModule,MatSelectModule,
     HttpClientModule],
   providers: [ActivoService],
   bootstrap: [AppComponent]
