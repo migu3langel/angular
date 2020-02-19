@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import {Activo} from './Activo';
 import { ActivoService } from "./activo.service";
+import { EmpresaActivoService } from './EmpresaActivo.service';
+import { from } from 'rxjs';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class ActivosComponent implements OnInit {
   columns: any[];
   exportColumns: any[];
   display: boolean = false;
-  empresa: any[];
+  empresas: any[];
 public saveActivo: Activo = new Activo();
 
   showDialog() {
@@ -34,7 +36,7 @@ public saveActivo: Activo = new Activo();
 
   }
 
-  constructor(private activosService: ActivoService) {}
+  constructor(private activosService: ActivoService, private empresaActivo: EmpresaActivoService) {}
 
   ngOnInit() {
 
@@ -44,6 +46,12 @@ public saveActivo: Activo = new Activo();
 
       //  this.activos = getactivo();
     });
+
+    this.empresaActivo.getEmpresas().subscribe(
+      empresas => this.empresas = empresas
+    );
+
+
 
 
 

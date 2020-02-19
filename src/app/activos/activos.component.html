@@ -38,7 +38,7 @@
 </p-table>
 </div>
 
-<p-dialog header="Nuevo Activo" [(visible)]="display">
+<p-dialog header="Title" [(visible)]="display">
   <form (ngSubmit)="create()">
     <div class="form-row">
       <div class="form-group col-md-6">
@@ -46,29 +46,27 @@
         <input type="text" class="form-control"  placeholder="Codigo de Activo" [(ngModel)]="saveActivo.codigoActivo" name="codigoActivo">
       </div>
       <div class="form-group col-md-6">
-        <label for="inputPassword4" >Empresa</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Empresa">
+        <label for="empresa" >Empresa</label>
+        <select class="form-control form-control-sm" [(ngModel)]="saveActivo.empresaActivo"  name="state">
+          <option  [ngValue]="empresa.idEmpresa" *ngFor="let empresa of empresas" >{{empresa.descripcion}}</option>
+        </select>
       </div>
       <div class="form-group col-md-6">
         <label for="inputEmail8">Tipo de Activo</label>
         <input type="email" class="form-control" id="inputEmail8" placeholder="Tipo de Activo">
       </div>
       <div class="form-group col-md-6">
-        <mat-label> Comida favorita </mat-label>
-        <mat-select>
-          <mat-option * ngFor = "let activo of activos" [ value ] = "activo.empresa">
-            {{activo.empresa}}
-          </mat-option>
-        </mat-select >
+        <label for="inputPassword5">Centro de costo</label>
+        <input type="password" class="form-control" id="inputPassword5" placeholder="Centro de costo">
       </div>
     </div>
     <div class="form-group">
       <label for="inputAddress">Custodio</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="Custodio"  [(ngModel)]="saveActivo.custodio" name="custodio">
+      <input type="text" class="form-control" id="inputAddress" placeholder="Custodio">
     </div>
     <div class="form-group">
       <label for="descripcion">Descripción</label>
-      <input type="text" class="form-control"  placeholder="Descripción"  [(ngModel)]="saveActivo.descripcion" name="descripcion" >
+      <input type="text" class="form-control"  placeholder="Descripción" [(ngModel)]="saveActivo.descripcion" name="descripcion">
     </div>
 
 

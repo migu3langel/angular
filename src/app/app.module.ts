@@ -15,7 +15,7 @@ import { ScanerComponent } from './scaner/scaner.component';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {DialogModule} from 'primeng/dialog';
 import {SelectItem} from 'primeng/api';
-import {MatSelectModule} from '@angular/material/select';
+
 const routes: Routes = [
 
   {path: 'directivas', component: DirectivaComponent},
@@ -40,7 +40,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,   BrowserAnimationsModule, RouterModule.forRoot(routes),
-    TableModule, FormsModule, DialogModule,MultiSelectModule,MatSelectModule,
+    TableModule, FormsModule, DialogModule,MultiSelectModule,
     HttpClientModule],
   providers: [ActivoService],
   bootstrap: [AppComponent]
