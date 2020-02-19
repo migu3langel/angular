@@ -8,6 +8,11 @@ import { DirectivaComponent } from './directiva/directiva.component';
 import { ActivosComponent } from './activos/activos.component';
 import {ActivoService} from './activos/activo.service';
 import {RouterModule, Routes} from '@angular/router';
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {PanelModule} from 'primeng/panel';
 
 
 
@@ -17,6 +22,7 @@ const routes: Routes = [
   {path: 'directivas', component: DirectivaComponent},
   {path: 'activos', component: ActivosComponent},
 
+
 ];
 @NgModule({
   declarations: [
@@ -24,18 +30,14 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     DirectivaComponent,
-
-
-
     ActivosComponent,
-
-
-
-
+ 
+  
   ],
   imports: [
-    BrowserModule,   BrowserAnimationsModule, RouterModule.forRoot(routes)
-  ],
+    BrowserModule,   BrowserAnimationsModule, RouterModule.forRoot(routes),
+    TableModule, FormsModule,
+    HttpClientModule],
   providers: [ActivoService],
   bootstrap: [AppComponent]
 })

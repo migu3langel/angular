@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import {ACTIVOS} from './activos.json';
-import {Activo} from './activo';
 import {Observable, of} from 'rxjs';
-
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -10,8 +8,9 @@ import {Observable, of} from 'rxjs';
 })
 export class ActivoService {
 
-  constructor() { }
-  getActivos(): Observable<Activo[]> {
-    return of(ACTIVOS);
+  constructor(private http: HttpClient) { }
+  getActivos() {
+    return this.http.get<any>('http://localhost:9000/ia/api/activos')
+   
   }
 }

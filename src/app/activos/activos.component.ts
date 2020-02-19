@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Activo} from './activo';
-import {ActivoService} from './activo.service';
 
+import {ActivoService} from './activo.service';
 
 
 
@@ -14,7 +13,21 @@ export class ActivosComponent implements OnInit {
 
   habilitar = true;
 
-activos: Activo[];
+activos: any[];
+cols: any[];
+columns: any[];
+exportColumns: any[];
+
+getactivo() {
+  let activos = [];
+  for(let activo of this.activos) {
+      activo.empresaActivo = activo.empresaActivo.descripcion;
+      activo.tipoActivo = activo.tipoActivo.descripcion;
+      activo.ubicacionActivo = activo.ubicacionActivo.descripcion;
+      activos.push(activo);
+  }
+  return activos;
+}
 
   constructor(private activosService: ActivoService) {
 
@@ -24,17 +37,70 @@ activos: Activo[];
 
   ngOnInit() {
 
-       
     this.activosService.getActivos().subscribe(
+      activos =>{
+              this.activos = activos;
+             activos = this.getactivo();
 
-      activos => this.activos = activos
 
-              );
-  }
 
-  setHabilitar(): void {
-    this.habilitar = (this.habilitar === true) ? false : true;
+            //  this.activos = getactivo();
 
-  }
+      }
+      );
+
+
+    this.cols = [
+      { field: 'codigoActivo', header: 'Codigo de Activo' },
+      { field: 'custodio', header: 'Custodio' },
+      { field: 'descripcion', header: 'Descripcion' },
+      { field: 'empresaActivo', header: 'Empresa' },
+      { field: 'tipoActivo',  header: 'Tipo de Activo'},
+      { field: 'ubicacionActivo', header: 'Centro de Costo'}
+
+
+
+  ];
+
+
+
+  this.exportColumns = this.cols.map(col => ({title: col.header, dataKey: col.field}));
 
 }
+exportPdf() {
+  import("jspdf").then(jsPDF => {
+      import("jspdf-autotable").then(x => {
+          const doc = new jsPDF.default(0,0);
+          doc.autoTable(this.exportColumns, this.activos);
+          doc.save('primengTable.pdf');
+      })
+  })
+}
+
+exportExcel() {
+  import("xlsx").then(xlsx => {
+      const worksheet = xlsx.utils.json_to_sheet(this.activos);
+      const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+      const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+      this.saveAsExcelFile(excelBuffer, "primengTable");
+  });
+}
+
+saveAsExcelFile(buffer: any, fileName: string): void {
+  import("file-saver").then(FileSaver => {
+      let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+      let EXCEL_EXTENSION = '.xlsx';
+      const data: Blob = new Blob([buffer], {
+          type: EXCEL_TYPE
+      });
+      FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
+  });
+}
+
+
+
+}
+
+
+
+

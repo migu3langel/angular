@@ -1,30 +1,26 @@
+<p-table #dt [columns]="cols" [value]="activos" selectionMode="multiple" [paginator]="true" [rows]="10" >
 
-<div class="card border-secondary mb-3c" >
+  <ng-template pTemplate="caption">
 
-  <div class="card-body"  *ngIf="habilitar == true">
-    <h5 class="card-title">Listado de Activos</h5>
-<table id="myTable"  class="table table-bordered" >
-  <thead>
-    <tr>
-      <th>Codigo Activo</th>
-      <th>Descripcion</th>
-      <th>Custodio</th>
-      <th>Empresa</th>
-      <th>Ubicacion</th>
-      <th>Tipo</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let activo of activos">
-      <td>{{activo.codigoActivo}}      </td>
-      <td>{{activo.descripcion}}</td>
-      <td>{{activo.custodio}}</td>
-      <td>{{activo.empresaActivo.descripcion}}</td>
-       <td>{{activo.ubicacionActivo.descripcion}}</td>
-      <td>{{activo.tipoActivo.descripcion}}</td>
-    </tr>
-  </tbody>
-</table>
+    <div class="ui-helper-clearfix" style="text-align: left">
+      <button type="button" pButton icon="pi pi-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()" style="margin-right: 0.5em;">CSV</button>
+      <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL" (click)="exportExcel()" style="margin-right: 0.5em;" class="ui-button-success">Excell</button>
+      <button type="button" pButton icon="pi pi-file-pdf" iconPos="left" label="PDF" (click)="exportPdf()" class="ui-button-warning">PDF</button>
+      <button type="button" pButton icon="pi pi-file" iconPos="left" label="CSV - Selection Only" (click)="dt.exportCSV({selectionOnly:true})" style="float:right">Exportar Selección</button>
   </div>
-</div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+        <th *ngFor="let col of columns">
+            {{col.header}}
+        </th>
+    </tr>
+</ng-template>
+<ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+        <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+        </td>
+    </tr>
+</ng-template>
+</p-table>
