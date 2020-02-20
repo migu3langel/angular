@@ -43,26 +43,30 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="codigoActivo">Codigo de Activo</label>
-        <input type="text" class="form-control"  placeholder="Codigo de Activo" [(ngModel)]="saveActivo.codigoActivo" name="codigoActivo">
+        <input required minlength="4" type="text" class="form-control"  placeholder="Codigo de Activo" [(ngModel)]="saveActivo.codigoActivo" name="codigoActivo">
       </div>
       <div class="form-group col-md-6">
         <label for="empresa" >Empresa</label>
-        <select class="form-control form-control-sm" [(ngModel)]="saveActivo.empresaActivo"  name="state">
+        <select class="form-control form-control-sm" [(ngModel)]="saveActivo.idEmpresa"  name="idEmpresa">
           <option  [ngValue]="empresa.idEmpresa" *ngFor="let empresa of empresas" >{{empresa.descripcion}}</option>
         </select>
       </div>
       <div class="form-group col-md-6">
-        <label for="inputEmail8">Tipo de Activo</label>
-        <input type="email" class="form-control" id="inputEmail8" placeholder="Tipo de Activo">
+        <label for="tipo">Tipo de Activo</label>
+        <select class="form-control form-control-sm" [(ngModel)]="saveActivo.idTipo"  name="tipo">
+          <option  [ngValue]="tipo.idTipo" *ngFor="let tipo of tipos" >{{tipo.descripcion}}</option>
+        </select>
       </div>
       <div class="form-group col-md-6">
-        <label for="inputPassword5">Centro de costo</label>
-        <input type="password" class="form-control" id="inputPassword5" placeholder="Centro de costo">
+        <label for="ub">Centro de costo</label>
+        <select class="form-control form-control-sm" [(ngModel)]="saveActivo.idUbicacion"  name="ubicacion">
+          <option  [ngValue]="ub.idUbicacion" *ngFor="let ub of ubicacion" >{{ub.descripcion}}</option>
+        </select>
       </div>
     </div>
     <div class="form-group">
       <label for="inputAddress">Custodio</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="Custodio">
+      <input type="text" class="form-control"  placeholder="Custodio" [(ngModel)]="saveActivo.custodio" name="custodio">
     </div>
     <div class="form-group">
       <label for="descripcion">Descripción</label>

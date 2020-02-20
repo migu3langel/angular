@@ -1,14 +1,18 @@
 import { Component, OnInit } from "@angular/core";
-import {Activo} from './Activo';
+import { Activo } from './Activo';
 import { ActivoService } from "./activo.service";
-import { EmpresaActivoService } from './EmpresaActivo.service';
-import { from } from 'rxjs';
+import { EmpresaActivoService } from "./EmpresaActivo.service";
+import { UbicacionActivoService } from './ubicacion.service';
+import { TipoService } from './tipo.service';
+import {Router} from '@angular/router';
+
+
 
 
 @Component({
-  selector: 'app-activos',
-  templateUrl: './activos.component.html',
-  styleUrls: ['./activos.component.css']
+  selector: "app-activos",
+  templateUrl: "./activos.component.html",
+  styleUrls: ["./activos.component.css"]
 })
 export class ActivosComponent implements OnInit {
   habilitar = true;
@@ -18,7 +22,10 @@ export class ActivosComponent implements OnInit {
   exportColumns: any[];
   display: boolean = false;
   empresas: any[];
-public saveActivo: Activo = new Activo();
+  ubicacion: any[];
+  tipos: any[];
+  public saveActivo: Activo = new Activo();
+
 
   showDialog() {
     this.display = true;
@@ -32,14 +39,18 @@ public saveActivo: Activo = new Activo();
       activos.push(activo);
     }
     return activos;
-
-
   }
 
-  constructor(private activosService: ActivoService, private empresaActivo: EmpresaActivoService) {}
+  constructor(
+    private activosService: ActivoService,
+    private empresaActivo: EmpresaActivoService,
+    private ubicacionActivo: UbicacionActivoService,
+    private tipoActivo: TipoService,
+    private router: Router
+
+  ) {}
 
   ngOnInit() {
-
     this.activosService.getActivos().subscribe(activos => {
       this.activos = activos;
       activos = this.getactivo();
@@ -47,11 +58,15 @@ public saveActivo: Activo = new Activo();
       //  this.activos = getactivo();
     });
 
-    this.empresaActivo.getEmpresas().subscribe(
-      empresas => this.empresas = empresas
-    );
+    this.empresaActivo
+      .getEmpresas()
+      .subscribe(empresas => (this.empresas = empresas));
 
+    this.ubicacionActivo
+      .getUbicacion()
+      .subscribe(ubicacion =>(this.ubicacion = ubicacion));
 
+    this.tipoActivo.getTipo().subscribe(tipos =>(this.tipos = tipos));
 
 
 
@@ -106,11 +121,12 @@ public saveActivo: Activo = new Activo();
     });
   }
 
-public create(): void{
+  public create(): void {
+    console.log("Clicked!");
+    console.log(this.saveActivo);
 
-console.log("Clicked!")
-console.log(this.saveActivo)
-
-}
-
+    this.activosService.create(this.saveActivo).subscribe(
+      response => location.reload()
+    );
+  }
 }

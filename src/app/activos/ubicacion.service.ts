@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class EmpresaActivoService {
+export class UbicacionActivoService {
   constructor(private http: HttpClient) {}
-  getEmpresas() {
-    return this.http.get<any>('http://localhost:9000/ia/api/empresas');
+  getUbicacion() {
+    return this.http.get<any>('http://localhost:9000/ia/api/ubicacion');
   }
 }
