@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Scaner } from './Scaner';
 
 
 @Injectable({
@@ -8,8 +10,9 @@ import { HttpClient } from '@angular/common/http';
 export class Scanservice {
 
   constructor(private http: HttpClient) { }
-  getScan() {
-    return this.http.get<any>('http://localhost:9000/ia/api/scan')
+
+  getScan(): Observable<Scaner[]> {
+    return this.http.get<Scaner[]>('http://localhost:9000/ia/api/scan');
 
   }
 }
