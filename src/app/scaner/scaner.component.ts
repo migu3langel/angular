@@ -28,9 +28,6 @@ getactivo() {
   this.listDto = new Array();
   for (const s of this.scan) {
     const myFormattedDate = datePipe.transform(s.fechaScan, 'd/M/yy, hh:mm a');
-
-       // (Fecha, CodigoActivo, Custodio, Descripcion, Lote)
-
     this.listDto.push(
       new NuevoDto(
         myFormattedDate,
@@ -39,9 +36,6 @@ getactivo() {
         s.activo.descripcion,
         s.loteActivo.estado,
         s.idScan));
-
-
-
 }
 
 }
@@ -52,13 +46,9 @@ getactivo() {
 
     this.scanService.getScan().subscribe(scan => {
       this.scan = scan;
-      // this.listDto =
-
       this.getactivo();
       this.datasource = this.listDto;
-
       this.totalRecords = this.datasource.length;
-
       console.log(this.totalRecords);
 
     }
@@ -71,9 +61,6 @@ getactivo() {
         {field: 'Custodio', header: 'Custodio'},
         {field: 'Descripcion', header: 'Descripcion'},
         {field: 'id', header: 'id'}
-
-
-
       ];
 
     this.exportColumns = this.cols.map(col => ({
@@ -121,14 +108,7 @@ getactivo() {
   loadCarsLazy(event: LazyLoadEvent) {
     this.loading = true;
 
-    // in a real application, make a remote request to load data using state metadata from event
-    // event.first = First row offset
-    // event.rows = Number of rows per page
-    // event.sortField = Field name to sort with
-    // event.sortOrder = Sort order as number, 1 for asc and -1 for dec
-    // filters: FilterMetadata object having field as key and filter value, filter matchMode as value
 
-    // imitate db connection over a network
     setTimeout(() => {
         if (this.datasource) {
             this.listDto = this.datasource.slice(event.first, (event.first + event.rows));
