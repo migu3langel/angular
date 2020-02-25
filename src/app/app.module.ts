@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ScanerComponent } from './scaner/scaner.component';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {DialogModule} from 'primeng/dialog';
+import { HistoricoComponent } from './historico/historico.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
 
   {path: 'activos', component: ActivosComponent},
   {path: 'scan', component: ScanerComponent},
+  {path: 'historico', component: HistoricoComponent},
 
 
 
@@ -31,6 +33,7 @@ const routes: Routes = [
 
     ActivosComponent,
     ScanerComponent,
+    HistoricoComponent,
 
 
 
