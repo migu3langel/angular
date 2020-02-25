@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent} from './header/header.component';
-import {FooterComponent} from './footer/footer.component';
-import { DirectivaComponent } from './directiva/directiva.component';
+
 import { ActivosComponent } from './activos/activos.component';
 import {ActivoService} from './activos/activo.service';
 import {RouterModule, Routes} from '@angular/router';
@@ -14,11 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ScanerComponent } from './scaner/scaner.component';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {DialogModule} from 'primeng/dialog';
-import {SelectItem} from 'primeng/api';
+
 
 const routes: Routes = [
 
-  {path: 'directivas', component: DirectivaComponent},
+
   {path: 'activos', component: ActivosComponent},
   {path: 'scan', component: ScanerComponent},
 
@@ -29,8 +28,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    DirectivaComponent,
+
     ActivosComponent,
     ScanerComponent,
 
@@ -40,7 +38,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,   BrowserAnimationsModule, RouterModule.forRoot(routes),
-    TableModule, FormsModule, DialogModule,MultiSelectModule,
+    TableModule, FormsModule, DialogModule, MultiSelectModule,
     HttpClientModule],
   providers: [ActivoService],
   bootstrap: [AppComponent]

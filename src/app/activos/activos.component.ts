@@ -4,7 +4,7 @@ import { ActivoService } from "./activo.service";
 import { EmpresaActivoService } from "./EmpresaActivo.service";
 import { UbicacionActivoService } from './ubicacion.service';
 import { TipoService } from './tipo.service';
-import {Router} from '@angular/router';
+
 
 
 
@@ -26,10 +26,10 @@ export class ActivosComponent implements OnInit {
   tipos: any[];
   public saveActivo: Activo = new Activo();
 
-
   showDialog() {
     this.display = true;
   }
+
   getactivo() {
     let activos = [];
     for (let activo of this.activos) {
@@ -46,7 +46,7 @@ export class ActivosComponent implements OnInit {
     private empresaActivo: EmpresaActivoService,
     private ubicacionActivo: UbicacionActivoService,
     private tipoActivo: TipoService,
-    private router: Router
+
 
   ) {}
 

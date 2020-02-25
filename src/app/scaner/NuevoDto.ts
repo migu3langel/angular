@@ -4,11 +4,13 @@ export class NuevoDto {
   Custodio: any;
   Descripcion: any;
   Lote: any;
-  constructor(Fecha, CodigoActivo, Custodio, Descripcion, Lote) {
+  id: any;
+  constructor(Fecha, CodigoActivo, Custodio, Descripcion, Lote,id) {
     this.CodigoActivo = CodigoActivo;
     this.Custodio = Custodio;
     this.Fecha = Fecha;
     this.Lote = Lote;
     this.Descripcion = Descripcion;
+    this.id = id;
   }
 }

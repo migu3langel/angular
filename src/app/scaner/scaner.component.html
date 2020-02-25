@@ -1,11 +1,7 @@
-<br>
 <div class="container">
+  <p-table #dt [columns]="cols" [value]="listDto" [responsive]="true" selectionMode="multiple" [rowsPerPageOptions]="[5,10,20,50,100]" [paginator]="true" [rows]="10" >
 
-
-  <div class="container">
-  <p-table #dt [columns]="cols" [value]="listDto" [responsive]="true" selectionMode="multiple" [rowsPerPageOptions]="[10,20,50,100]" sortMode="multiple" [paginator]="true" [rows]="5" >
-
-    <ng-template pTemplate="caption" let-columns>
+    <ng-template pTemplate="caption">
 
       <div class="ui-helper-clearfix" style="text-align: left">
         <button type="button" pButton icon="pi pi-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()" style="margin-right: 0.5em;" class="btn btn-warning btn-sm">CSV</button>
@@ -20,12 +16,10 @@
     </div>
 
     </ng-template>
-
     <ng-template pTemplate="header" let-columns>
       <tr>
-          <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+          <th *ngFor="let col of columns">
               {{col.header}}
-              <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
           </th>
       </tr>
   </ng-template>
@@ -38,4 +32,5 @@
   </ng-template>
   </p-table>
   </div>
+
 
