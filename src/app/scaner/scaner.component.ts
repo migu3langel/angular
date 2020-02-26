@@ -59,8 +59,8 @@ getactivo() {
         {field: 'CodigoActivo', header: 'Codigo de Activo'},
         {field: 'Fecha', header: 'Fecha de Scan'},
         {field: 'Custodio', header: 'Custodio'},
-        {field: 'Descripcion', header: 'Descripcion'},
-        {field: 'id', header: 'id'}
+        {field: 'Descripcion', header: 'Descripcion'}
+
       ];
 
     this.exportColumns = this.cols.map(col => ({

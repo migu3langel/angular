@@ -16,6 +16,7 @@ export class HistoricoComponent implements OnInit {
     const listHistorico = [];
     for ( const historico of this.listHistorico) {
       historico.activo = historico.activo.codigoActivo;
+
       listHistorico.push(historico);
     }
     return listHistorico;
@@ -34,6 +35,7 @@ export class HistoricoComponent implements OnInit {
       {field: 'custodioNuevo', header: 'Custodio Nuevo'},
       {field: 'descripcionAnterior', header: 'Descripcion Anterior'},
       {field: 'descripcionNueva', header: 'Descripcion Nueva'},
+
       {field: 'fecha', header: 'Fecha'}
 
     ];
