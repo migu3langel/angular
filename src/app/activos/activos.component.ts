@@ -4,8 +4,8 @@ import { ActivoService } from "./activo.service";
 import { EmpresaActivoService } from "./EmpresaActivo.service";
 import { UbicacionActivoService } from './ubicacion.service';
 import { TipoService } from './tipo.service';
-
-
+import swal from 'sweetalert2';
+const Swal = require('sweetalert2');
 
 
 
@@ -24,6 +24,7 @@ export class ActivosComponent implements OnInit {
   empresas: any[];
   ubicacion: any[];
   tipos: any[];
+
   public saveActivo: Activo = new Activo();
 
   showDialog() {
@@ -51,6 +52,7 @@ export class ActivosComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
     this.activosService.getActivos().subscribe(activos => {
       this.activos = activos;
       activos = this.getactivo();
@@ -126,7 +128,16 @@ export class ActivosComponent implements OnInit {
     console.log(this.saveActivo);
 
     this.activosService.create(this.saveActivo).subscribe(
-      response => location.reload()
+      response => {
+        Swal.fire({
+          icon: 'success',
+          title: 'ACtivo actualizado',
+          showConfirmButton: false,
+
+        });
+
+
+      }
     );
   }
 }
