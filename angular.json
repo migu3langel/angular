@@ -18,7 +18,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -28,12 +28,8 @@
               "node_modules/primeng/resources/themes/nova-light/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "src/styles.css"
-
             ],
-            "scripts": [
-
-
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -48,7 +44,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -97,12 +92,8 @@
             ],
             "styles": [
               "src/styles.css"
-
-
             ],
-            "scripts": [
-
-            ]
+            "scripts": []
           }
         },
         "lint": {
@@ -131,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "activos-app"
+    }
+  },
+  "defaultProject": "activos-app",
+  "cli": {
+    "analytics": "8335211e-a368-4240-bcb1-35a9b8cc6eeb"
+  }
 }
