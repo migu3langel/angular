@@ -14,6 +14,8 @@ import { ScanerComponent } from './scaner/scaner.component';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {DialogModule} from 'primeng/dialog';
 import { HistoricoComponent } from './historico/historico.component';
+import {CalendarModule} from 'primeng/calendar';
+
 
 
 const routes: Routes = [
@@ -41,7 +43,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,   BrowserAnimationsModule, RouterModule.forRoot(routes),
-    TableModule, FormsModule, DialogModule, MultiSelectModule,
+    TableModule, FormsModule, DialogModule, MultiSelectModule,CalendarModule,
     HttpClientModule],
   providers: [ActivoService],
   bootstrap: [AppComponent]

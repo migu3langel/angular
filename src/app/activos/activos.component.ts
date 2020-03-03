@@ -75,7 +75,7 @@ export class ActivosComponent implements OnInit {
     this.cols = [
       { field: "codigoActivo", header: "Codigo de Activo" },
       { field: "custodio", header: "Custodio" },
-      { field: "descripcion", header: "Descripcion" },
+      { field: "descripcion", header: "Descripción" },
       { field: "empresaActivo", header: "Empresa " },
       { field: "tipoActivo", header: "Tipo de Activo" },
       { field: "ubicacionActivo", header: "Centro de Costo" }

@@ -21,13 +21,18 @@ loading: boolean;
 totalRecords: number;
 datasource: any;
 selectedCar1: Scaner;
+value: Date;
+value2: Date;
+
+fecha: string;
+
 getactivo() {
 
   const datePipe = new DatePipe('en-US');
 
   this.listDto = new Array();
   for (const s of this.scan) {
-    const myFormattedDate = datePipe.transform(s.fechaScan, 'd/M/yy, hh:mm a');
+    const myFormattedDate = datePipe.transform(s.fechaScan, 'dd/MM/yyyy, hh:mm a');
     this.listDto.push(
       new NuevoDto(
         myFormattedDate,
@@ -40,9 +45,27 @@ getactivo() {
 
 }
 
-  constructor(private scanService: Scanservice) { }
+setFecha(){
+
+  const datePipe = new DatePipe('en-US');
+  const myFormattedDate = datePipe.transform(this.value, 'dd-MM-yyyy');
+  const Date2 = datePipe.transform(this.value2, 'dd-MM-yyyy');
+
+  this.scanService.getfecha(myFormattedDate, Date2).subscribe(scan => {
+   this.scan = scan;
+   this.getactivo();
+   this.datasource = this.listDto;
+   this.totalRecords = this.datasource.length;
+   console.log(myFormattedDate,Date2);
+
+  }  );
+}
+
+  constructor(private scanService: Scanservice
+    ) { }
 
   ngOnInit() {
+
 
     this.scanService.getScan().subscribe(scan => {
       this.scan = scan;
@@ -68,6 +91,8 @@ getactivo() {
       dataKey: col.field
     }));
     this.loading = true;
+
+
   }
   exportPdf() {
     import('jspdf').then(jsPDF => {

@@ -1,15 +1,27 @@
 
 <div class="container">
+  <p-calendar  class="float-right"[(ngModel)]="value2"placeholder="Fecha Final" ></p-calendar>
+  <p-calendar class="float-right" [(ngModel)]="value" placeholder="Fecha Inicial"> </p-calendar>
+
+
+  <p-button  icon="pi pi-compass" class="float-right" label="Buscar" (click)="setFecha()" ></p-button>
+</div>
+
+  <br>
+  <br>
+<div class="container">
+
+
+
   <p-table #dt [columns]="cols" [value]="listDto" [responsive]="true" selectionMode="multiple" [rowsPerPageOptions]="[5,10,20,50,100]" [paginator]="true" [rows]="10" >
 
     <ng-template pTemplate="caption">
 
       <div class="ui-helper-clearfix" style="text-align: left">
-        <button type="button" pButton icon="pi pi-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()" style="margin-right: 0.5em;" class="btn btn-warning btn-sm">CSV</button>
-        <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL" (click)="exportExcel()" style="margin-right: 0.5em;" class="btn btn-success btn-sm">Excell</button>
-        <button type="button" pButton icon="pi pi-file-pdf" iconPos="left" label="PDF" (click)="exportPdf()" class="btn btn-danger btn-sm">PDF</button>
-        <button type="button" pButton icon="pi pi-file" iconPos="left" label="CSV - Selection Only" (click)="dt.exportCSV({selectionOnly:true})" style="float:right"
-        class="btn btn-success btn-sm">Exportar Selección</button>
+        <button type="button" pButton icon="pi pi-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()" style="margin-right: 0.5em;"></button>
+        <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL" (click)="exportExcel()" style="margin-right: 0.5em;" class="ui-button-success"></button>
+        <button type="button" pButton icon="pi pi-file-pdf" iconPos="left" label="PDF" (click)="exportPdf()" class="ui-button-warning"></button>
+        <button type="button" pButton icon="pi pi-file" iconPos="left" label="CSV - Exportar Selección" (click)="dt.exportCSV({selectionOnly:true})" style="float:right"></button>
 
           <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
           <input type="text" pInputText size="50" placeholder="Buscar..." (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto" >
