@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "~9.0.4",
     "@angular/router": "~9.0.4",
     "@types/jquery": "^3.3.33",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.12.29",
     "bootstrap": "^4.4.1",
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
