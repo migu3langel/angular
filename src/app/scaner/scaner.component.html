@@ -1,10 +1,11 @@
 
 <div class="container">
-  <p-calendar  class="float-right"[(ngModel)]="value2"placeholder="Fecha Final" ></p-calendar>
-  <p-calendar class="float-right" [(ngModel)]="value" placeholder="Fecha Inicial"> </p-calendar>
+  <p-calendar  class="float-right" [locale]="es" [(ngModel)]="value2"placeholder="Fecha Final" dateFormat="dd/mm/yy"></p-calendar>
+  <p-calendar class="float-right"  [locale]="es" [(ngModel)]="value" placeholder="Fecha Inicial" dateFormat="dd/mm/yy"> </p-calendar>
 
 
   <p-button  icon="pi pi-compass" class="float-right" label="Buscar" (click)="setFecha()" ></p-button>
+
 </div>
 
   <br>
