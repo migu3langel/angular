@@ -7,6 +7,6 @@ import { HttpClient } from '@angular/common/http';
 export class UbicacionActivoService {
   constructor(private http: HttpClient) {}
   getUbicacion() {
-    return this.http.get<any>('http://localhost:9000/ia/api/ubicacion');
+    return this.http.get<any>('http://10.14.1.43:9000/ia/api/ubicacion');
   }
 }

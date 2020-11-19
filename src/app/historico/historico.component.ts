@@ -30,13 +30,13 @@ export class HistoricoComponent implements OnInit {
     });
 
     this.cols = [
-      {field: 'activo', header: 'Codigo de Activo'},
-      {field: 'custodioAnterior', header: 'Custodio Anterior'},
-      {field: 'custodioNuevo', header: 'Custodio Nuevo'},
-      {field: 'descripcionAnterior', header: 'Descripcion Anterior'},
-      {field: 'descripcionNueva', header: 'Descripcion Nueva'},
+      {field: 'activo', header: 'Código de activo'},
+      {field: 'custodioAnterior', header: 'Custodio anterior'},
+      {field: 'custodioNuevo', header: 'Custodio nuevo'},
+      {field: 'descripcionAnterior', header: 'Descripción anterior'},
+      {field: 'descripcionNueva', header: 'Descripción nueva'},
 
-      {field: 'fecha', header: 'Fecha'}
+      {field: 'fecha', header: 'Fecha de modificación'}
 
     ];
     this.exportColumns = this.cols.map(col => ({

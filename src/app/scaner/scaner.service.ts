@@ -9,11 +9,11 @@ import { Scaner } from './Scaner';
 })
 export class Scanservice {
 
-  private url = 'http://localhost:9000/ia/api/scan/fecha';
+  private url = 'http://10.14.1.43:9000/ia/api/scan/fecha';
   constructor(private http: HttpClient) { }
 
   getScan(): Observable<Scaner[]> {
-    return this.http.get<Scaner[]>('http://localhost:9000/ia/api/scan');
+    return this.http.get<Scaner[]>('http://10.14.1.43:9000/ia/api/scan');
 
   }
 

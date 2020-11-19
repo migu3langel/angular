@@ -90,10 +90,10 @@ setFecha(){
 
 
     this.cols = [
-        {field: 'CodigoActivo', header: 'Codigo de Activo'},
-        {field: 'Fecha', header: 'Fecha de Scan'},
+        {field: 'CodigoActivo', header: 'Código de activo'},
+        {field: 'Fecha', header: 'Fecha de scan'},
         {field: 'Custodio', header: 'Custodio'},
-        {field: 'Descripcion', header: 'Descripcion'}
+        {field: 'Descripcion', header: 'Descripción'}
 
       ];
 

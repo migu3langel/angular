@@ -73,12 +73,12 @@ export class ActivosComponent implements OnInit {
 
 
     this.cols = [
-      { field: "codigoActivo", header: "Codigo de Activo" },
+      { field: "codigoActivo", header: "Código de activo" },
       { field: "custodio", header: "Custodio" },
       { field: "descripcion", header: "Descripción" },
       { field: "empresaActivo", header: "Empresa " },
-      { field: "tipoActivo", header: "Tipo de Activo" },
-      { field: "ubicacionActivo", header: "Centro de Costo" }
+      { field: "tipoActivo", header: "Tipo de activo" },
+      { field: "ubicacionActivo", header: "Centro de costo" }
     ];
 
     this.exportColumns = this.cols.map(col => ({
@@ -131,7 +131,7 @@ export class ActivosComponent implements OnInit {
       response => {
         Swal.fire({
           icon: 'success',
-          title: 'ACtivo actualizado',
+          title: 'Activo Creado',
           showConfirmButton: false,
 
         });

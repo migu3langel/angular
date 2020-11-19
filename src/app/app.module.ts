@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent} from './header/header.component';
-
 import { ActivosComponent } from './activos/activos.component';
 import {ActivoService} from './activos/activo.service';
 import {RouterModule, Routes} from '@angular/router';
@@ -42,7 +41,7 @@ const routes: Routes = [
 
   ],
   imports: [
-    BrowserModule,   BrowserAnimationsModule, RouterModule.forRoot(routes),
+    BrowserModule,   BrowserAnimationsModule, RouterModule.forRoot(routes, {useHash: true}),
     TableModule, FormsModule, DialogModule, MultiSelectModule,CalendarModule,
     HttpClientModule],
   providers: [ActivoService],

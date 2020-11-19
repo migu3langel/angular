@@ -13,7 +13,7 @@ export class HistoricoService {
   constructor(private http: HttpClient) { }
 
   getHistorico(): Observable<Historico[]> {
-    return this.http.get<Historico[]>('http://localhost:9000/ia/api/historico');
+    return this.http.get<Historico[]>('http://10.14.1.43:9000/ia/api/historico');
 
   }
 }
